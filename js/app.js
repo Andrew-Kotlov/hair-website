@@ -19,13 +19,29 @@ if (ScrollTrigger.isTouch !==1) {
         }
     })
 
-    let itemsL = gsap.util.toArray('.gallary__left .gallary__item')
+    let itemsL = gsap.utils.toArray('.gallary__left .gallary__item')
 
     itemsL.forEach(item => {
-        gsap.fromTo(item, { x: -500, opacity: 0 }, {
+        gsap.fromTo(item, { x: -50, opacity: 0 }, {
             opacity: 1, x: 0,
             scrollTrigger: {
-                trigger: '.galary__item',
+                trigger: item,
+                start: "-850",
+                end: "-100",
+                scrub: true
+            }
+        })
+    })
+
+    let itemsR = gsap.utils.toArray('.gallary__right .gallary__item')
+
+    itemsR.forEach(item => {
+        gsap.fromTo(item, { x: 50, opacity: 0 }, {
+            opacity: 1, x: 0,
+            scrollTrigger: {
+                trigger: item,
+                start: "-850",
+                end: "-100",
                 scrub: true
             }
         })
